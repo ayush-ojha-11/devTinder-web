@@ -32,9 +32,32 @@ const Connections = () => {
       </h1>
 
       {connections.map((connection) => {
-        const { firstName, lastName, age, gender, photoUrl } = connection;
+        const { firstName, lastName, age, gender, photoUrl, about } =
+          connection;
 
-        return <div></div>;
+        return (
+          <div>
+            <div className="card card-side bg-base-300 shadow-xl mx-auto p-4 max-w-md">
+              <div className="flex items-center space-x-4">
+                <div className="avatar">
+                  <div className="w-16 h-16 rounded-full overflow-hidden">
+                    <img
+                      src={photoUrl}
+                      alt="Avatar"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold">
+                    {firstName + " " + lastName}
+                  </h2>
+                  <p className="text-sm text-gray-600">{about}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       })}
     </div>
   );
