@@ -54,12 +54,8 @@ const Requests = () => {
                 </div>
               </div>
               <div className="flex justify-end space-x-4 mt-6">
-                <button className="btn btn-neutral hover:bg-gray-100 border border-gray-300 rounded-lg py-2 px-6 transition duration-300 ease-in-out">
-                  Pass
-                </button>
-                <button className="btn btn-primary text-white hover:bg-primary/80 py-2 px-6 rounded-lg transition duration-300 ease-in-out">
-                  Like
-                </button>
+                <button className="btn btn-primary">Reject</button>
+                <button className="btn btn-secondary">Accept</button>
               </div>
             </div>
           </div>
