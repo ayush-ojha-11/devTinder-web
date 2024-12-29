@@ -56,6 +56,7 @@ const Requests = () => {
               <div className="flex justify-end space-x-4 mt-6">
                 <button className="btn btn-primary">Reject</button>
                 <button className="btn btn-secondary">Accept</button>
+                <button className="btn btn-secondary">Accept</button>
               </div>
             </div>
           </div>
