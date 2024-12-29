@@ -32,15 +32,15 @@ const Connections = () => {
       </h1>
 
       {connections.map((connection) => {
-        const { firstName, lastName, age, gender, photoUrl, about } =
+        const { _id, firstName, lastName, age, gender, photoUrl, about } =
           connection;
 
         return (
-          <div>
+          <div key={_id}>
             <div className="card card-side bg-base-300 shadow-xl mx-auto p-4 max-w-md">
               <div className="flex items-center space-x-4">
                 <div className="avatar">
-                  <div className="w-16 h-16 rounded-full overflow-hidden">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden">
                     <img
                       src={photoUrl}
                       alt="Avatar"
