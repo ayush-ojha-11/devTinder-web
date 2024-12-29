@@ -23,7 +23,10 @@ const Connections = () => {
 
   if (!connections) return;
 
-  if (connections.length === 0) return <h1>No Connections found</h1>;
+  if (connections.length === 0)
+    return (
+      <h1 className="flex justify-center text-xl m-4">No Connections found</h1>
+    );
 
   return (
     <div className="text-center my-10">
@@ -37,7 +40,7 @@ const Connections = () => {
 
         return (
           <div key={_id}>
-            <div className="card card-side bg-base-300 shadow-xl mx-auto p-4 max-w-md">
+            <div className="card card-side bg-base-300 shadow-xl mx-auto p-4 max-w-md m-4">
               <div className="flex items-center space-x-4">
                 <div className="avatar">
                   <div className="w-16 h-16 rounded-xl overflow-hidden">
