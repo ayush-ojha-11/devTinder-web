@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
@@ -10,10 +10,16 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [toast, setShowToast] = useState(false);
+
   const handleLogout = async () => {
     try {
       await axios.post(BASE_URL + "/logout", {}, { withCredentials: true });
       dispatch(removeUser());
+      setShowToast(true);
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 2000);
       return navigate("/login");
     } catch (error) {}
   };
@@ -57,6 +63,14 @@ const NavBar = () => {
                 <a onClick={handleLogout}>Logout</a>
               </li>
             </ul>
+          </div>
+        </div>
+      )}
+
+      {toast && (
+        <div className="toast toast-center toast-top">
+          <div className="alert alert-success">
+            <span>Logged out.</span>
           </div>
         </div>
       )}

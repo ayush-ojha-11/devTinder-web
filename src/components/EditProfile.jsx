@@ -136,7 +136,7 @@ const EditProfile = ({ user }) => {
       <UserCard user={{ firstName, lastName, photoUrl, about, age, gender }} />
 
       {toast && (
-        <div className="toast toast-top toast-start">
+        <div className="toast toast-top toast-center">
           <div className="alert alert-success">
             <span>Profile saved successfully.</span>
           </div>
