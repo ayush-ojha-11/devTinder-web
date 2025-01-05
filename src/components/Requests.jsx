@@ -4,8 +4,6 @@ import { BASE_URL } from "../utils/constants";
 import { addRequests, removeRequest } from "../utils/requestSlice";
 import axios from "axios";
 
-//
-
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
