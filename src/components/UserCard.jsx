@@ -1,7 +1,20 @@
+import axios from "axios";
 import React from "react";
+import { BASE_URL } from "../utils/constants";
 
 const UserCard = ({ user }) => {
   const { firstName, lastName, photoUrl, about, gender, age, skills } = user;
+
+  const handleSendRequest = async (status, userId) => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/request/send/" + status + "/" + userId,
+        {},
+        { withCredentials: true }
+      );
+    } catch (error) {}
+  };
+
   return (
     <div className="card bg-base-300 w-96 shadow-xl rounded-lg overflow-hidden">
       <figure className="h-75 w-full overflow-hidden">
