@@ -38,7 +38,7 @@ const Requests = () => {
     return <h1 className="flex justify-center m-4 text-xl">No Requests</h1>;
 
   return (
-    <div className="text-center my-10">
+    <div className="text-center my-10 pb-1 mx-5">
       <h1 className="text-bold text-2xl flex justify-center my-4">Requests</h1>
 
       {requests.map((request) => {
@@ -47,7 +47,7 @@ const Requests = () => {
 
         return (
           <div key={_id}>
-            <div className="card bg-base-300 shadow-lg rounded-lg mx-auto p-6 max-w-lg my-4">
+            <div className="card bg-base-300 shadow-lg rounded-lg mx-auto p-5 max-w-lg my-5">
               <div className="flex items-center space-x-6">
                 <div className="avatar">
                   <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 shadow-sm">
@@ -59,7 +59,7 @@ const Requests = () => {
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-semibold ">
+                  <h2 className="text-2xl font-semibold flex items-start">
                     {firstName + " " + lastName}
                   </h2>
                   <p className="text-sm  mt-2">{about}</p>
