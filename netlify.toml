@@ -1,9 +1,16 @@
 [build]
-  command = "CI='' npm run build"
-  publish = "/build"
-  base ="/"
+    publish = "public"
+    command = "npm run build"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[dev]
+    command = "npm start"
+    port = 8888
+
+[functions]
+    directory = "functions"
+
+[redirects]
+    [[redirects]]
+        from = "/*"
+        to = "/index.html"
+        status = 200
