@@ -1,16 +1,4 @@
-[build]
-    publish = "public"
-    command = "npm run build"
-
-[dev]
-    command = "npm start"
-    port = 8888
-
-[functions]
-    directory = "functions"
-
-[redirects]
-    [[redirects]]
-        from = "/*"
-        to = "/index.html"
-        status = 200
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
