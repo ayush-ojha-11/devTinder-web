@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
@@ -17,11 +17,13 @@ const NavBar = () => {
       await axios.post(BASE_URL + "/logout", {}, { withCredentials: true });
       dispatch(removeUser());
       setShowToast(true);
-      const timer = setTimeout(() => {
+      setTimeout(() => {
         setShowToast(false);
       }, 2000);
       return navigate("/login");
-    } catch (error) {}
+    } catch (error) {
+      console.log("error in logging out", error.message);
+    }
   };
   return (
     <div className="navbar bg-base-300">

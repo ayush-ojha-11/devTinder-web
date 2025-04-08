@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BASE_URL } from "../utils/constants";
 import { addRequests, removeRequest } from "../utils/requestSlice";
@@ -10,13 +10,15 @@ const Requests = () => {
 
   const reviewRequest = async (status, _id) => {
     try {
-      const res = axios.post(
+      axios.post(
         BASE_URL + "/request/review/" + status + "/" + _id,
         {},
         { withCredentials: true }
       );
       dispatch(removeRequest(_id));
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const fetchRequests = async () => {
@@ -26,23 +28,29 @@ const Requests = () => {
       });
 
       dispatch(addRequests(res.data.data));
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error in fetching requests ", error.message);
+    }
   };
 
   useEffect(() => {
     fetchRequests();
-  }, []);
+  });
 
   if (!requests) return;
   if (requests.length === 0)
-    return <h1 className="flex justify-center m-4 text-xl">No Requests</h1>;
+    return (
+      <h1 className="flex justify-center m-4 text-xl min-h-screen">
+        No Requests
+      </h1>
+    );
 
   return (
-    <div className="text-center my-10 pb-1 mx-5">
+    <div className="text-center my-10 pb-1 mx-5 min-h-screen">
       <h1 className="text-bold text-2xl flex justify-center my-4">Requests</h1>
 
       {requests.map((request) => {
-        const { _id, firstName, lastName, age, gender, photoUrl, about } =
+        const { _id, firstName, lastName, photoUrl, about } =
           request.fromUserId;
 
         return (

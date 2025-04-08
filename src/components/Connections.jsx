@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionSlice";
@@ -14,29 +14,32 @@ const Connections = () => {
       });
       console.log(res.data.data);
       dispatch(addConnections(res.data.data));
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error in fetching connections", error.message);
+    }
   };
 
   useEffect(() => {
     fetchConnections();
-  }, []);
+  });
 
   if (!connections) return;
 
   if (connections.length === 0)
     return (
-      <h1 className="flex justify-center text-xl m-4">No Connections found</h1>
+      <h1 className="flex justify-center text-xl m-4 min-h-screen">
+        No Connections found
+      </h1>
     );
 
   return (
-    <div className="text-center my-10 pb-1 mx-5">
+    <div className="text-center my-10 pb-1 mx-5 min-h-screen">
       <h1 className="text-bold text-2xl flex justify-center my-4">
         Connections
       </h1>
 
       {connections.map((connection) => {
-        const { _id, firstName, lastName, age, gender, photoUrl, about } =
-          connection;
+        const { _id, firstName, lastName, photoUrl, about } = connection;
 
         return (
           <div key={_id}>

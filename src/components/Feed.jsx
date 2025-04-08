@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import UserCard from "./UserCard";
@@ -15,12 +15,14 @@ const Feed = () => {
         withCredentials: true,
       });
       dispatch(addFeed(res.data));
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error in getting feed! ", error.message);
+    }
   };
 
   useEffect(() => {
     getFeed();
-  }, []);
+  });
 
   if (!feed) return;
 
@@ -29,7 +31,7 @@ const Feed = () => {
 
   return (
     feed && (
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center my-10 min-h-screen">
         <UserCard user={feed[0]} />
       </div>
     )

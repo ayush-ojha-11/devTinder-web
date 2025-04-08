@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
@@ -43,7 +43,9 @@ const Login = () => {
       );
       dispatch(addUser(res.data.data));
       return navigate("/profile");
-    } catch (error) {}
+    } catch {
+      console.log("Problem in signing up!");
+    }
   };
   return (
     <div className="flex justify-center items-center mx-5 min-h-screen">
